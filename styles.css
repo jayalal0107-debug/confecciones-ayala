@@ -818,3 +818,43 @@ html {
   border: 2px solid #1957b7;
   color: #123e82;
 }
+
+/* BOTONES DE TIPOS DE TELA MÁS PEQUEÑOS */
+
+/* Distribución de botones */
+#tipos-tela-colegio .prendas-colegio-grid {
+  display: grid;
+  
+#tipos-tela-colegio .prendas-colegio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 120px);
+  gap: 10px;
+  margin-top: 15px;
+}
+
+#tipos-tela-colegio .prenda-colegio-card {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 6px;
+  font-size: 14px;
+}
+
+  gap: 10px;
+  margin-top: 15px;
+}
+
+/* Tamaño de cada botón de tela */
+#tipos-tela-colegio .prenda-colegio-card {
+  width: 100%;
+  min-height: 42px;
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+/* Diseño para celulares */
+@media (max-width: 600px) {
+  #tipos-tela-colegio .prendas-colegio-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
