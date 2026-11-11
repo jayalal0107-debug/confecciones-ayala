@@ -790,3 +790,31 @@ html {
   font-size: 26px;
   margin-bottom: 15px;
 }
+
+/* RECUADRO INDEPENDIENTE DE TELAS */
+
+#tipos-tela-colegio:not(:empty) {
+  margin-top: 20px;
+  padding: 25px;
+  background: #f5f8ff;
+  border-radius: 16px;
+}
+
+#tipos-tela-colegio h2 {
+  color: #123e82;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+#tipos-tela-colegio p {
+  color: #475467;
+  font-size: 16px;
+}
+
+/* PRENDA O TELA SELECCIONADA */
+
+.prenda-colegio-card.seleccionado {
+  background: #e4eeff;
+  border: 2px solid #1957b7;
+  color: #123e82;
+}

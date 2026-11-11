@@ -259,24 +259,28 @@ if (categoria === "Combo 2 en 1") {
 // 8. SELECCIONAR COLEGIO
 // =====================================
 
+
 function seleccionarColegio(colegio) {
 
   colegioSeleccionado = colegio;
   prendaSeleccionada = null;
 
-const panelTelas = document.getElementById("tipos-tela-colegio");
-
-if (panelTelas) {
-  panelTelas.innerHTML = "";
-}
-
   const contenedor =
     document.getElementById("prendas-del-colegio");
 
+  const panelTelas =
+    document.getElementById("tipos-tela-colegio");
+
   if (!contenedor) return;
 
+  // Limpiar las selecciones anteriores
   contenedor.innerHTML = "";
 
+  if (panelTelas) {
+    panelTelas.innerHTML = "";
+  }
+
+  // Marcar el colegio seleccionado
   document.querySelectorAll(".colegio-destacado")
     .forEach(boton => {
       boton.classList.toggle(
@@ -292,16 +296,16 @@ if (panelTelas) {
   descripcion.textContent =
     "Selecciona una prenda para continuar.";
 
-const prendas = [
-  "Buzos",
-  "Casacas",
-  "Combo 2 en 1",
-  "Pantalones",
-  "Camisas",
-  "Polos",
-  "Shorts Escolares",
-  "Medias Escolares"
-];
+  const prendas = [
+    "Buzos",
+    "Casacas",
+    "Combo 2 en 1",
+    "Pantalones",
+    "Camisas",
+    "Polos",
+    "Shorts Escolares",
+    "Medias Escolares"
+  ];
 
   const grid = document.createElement("div");
   grid.className = "prendas-colegio-grid";
@@ -313,37 +317,25 @@ const prendas = [
     boton.className = "prenda-colegio-card";
     boton.textContent = prenda;
 
-    
-boton.addEventListener("click", () => {
+    boton.addEventListener("click", () => {
 
-  // Desmarcar todas las prendas
-  grid.querySelectorAll(".prenda-colegio-card")
-    .forEach(b => b.classList.remove("seleccionado"));
+      // Desmarcar otras prendas
+      grid.querySelectorAll(".prenda-colegio-card")
+        .forEach(b => b.classList.remove("seleccionado"));
 
-  // Marcar la prenda elegida
-  boton.classList.add("seleccionado");
+      // Marcar la prenda elegida
+      boton.classList.add("seleccionado");
 
-  colegioSeleccionado = colegio;
-  prendaSeleccionada = prenda;
+      colegioSeleccionado = colegio;
+      prendaSeleccionada = prenda;
 
-  // Mostrar las telas en un recuadro independiente
-  mostrarTiposTela();
+      // Mostrar el recuadro independiente de telas
+      mostrarTiposTela();
 
-});
-
-
-  const categorias = document.getElementById("categorias");
-
-  if (categorias) {
-    categorias.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
     });
-  }
-});
-
 
     grid.appendChild(boton);
+
   });
 
   contenedor.append(titulo, descripcion, grid);
@@ -352,71 +344,107 @@ boton.addEventListener("click", () => {
     behavior: "smooth",
     block: "start"
   });
+
 }
+
 
 function mostrarTiposTela() {
 
-  const contenedor = document.getElementById("prendas-del-colegio");
+  // Recuadro independiente
+  const contenedor =
+    document.getElementById("tipos-tela-colegio");
 
-  if (!contenedor) return;
-
-  let panel = document.getElementById("panel-tipos-tela");
-
-  if (!panel) {
-    panel = document.createElement("div");
-    panel.id = "panel-tipos-tela";
-    contenedor.appendChild(panel);
+  if (!contenedor) {
+    console.error("Falta el contenedor tipos-tela-colegio");
+    return;
   }
 
-const tiposTela = prendaSeleccionada === "Pantalones"
-  ? [
+  contenedor.innerHTML = "";
+
+  // Telas configuradas para cada prenda
+  const telasPorPrenda = {
+    "Buzos": [
+      "Polinam",
+      "Polialgodón"
+    ],
+    "Pantalones": [
       "Gabardina",
       "Drill",
       "Tergal",
       "Poliviscosa",
       "Lanilla"
     ]
-  : [
-      "Polinam",
-      "Polialgodón"
-    ];
+  };
 
-  panel.innerHTML = "";
+  const tiposTela = telasPorPrenda[prendaSeleccionada];
 
   const titulo = document.createElement("h2");
-  titulo.textContent = "Selecciona el tipo de tela";
+  titulo.textContent =
+    "Selecciona el tipo de tela para " + prendaSeleccionada;
 
-  const grid = document.createElement("div");
-  grid.className = "prendas-colegio-grid";
+  const descripcion = document.createElement("p");
+  descripcion.textContent =
+    "Colegio: " + colegioSeleccionado;
 
-  tiposTela.forEach(tela => {
+  contenedor.append(titulo, descripcion);
 
-    const boton = document.createElement("button");
-    boton.type = "button";
-    boton.className = "prenda-colegio-card";
-    boton.textContent = tela;
+  if (tiposTela) {
 
-    boton.addEventListener("click", () => {
-      const categorias = document.getElementById("categorias");
+    const grid = document.createElement("div");
+    grid.className = "prendas-colegio-grid";
 
-      if (categorias) {
-        categorias.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        });
-      }
+    tiposTela.forEach(tela => {
+
+      const boton = document.createElement("button");
+      boton.type = "button";
+      boton.className = "prenda-colegio-card";
+      boton.textContent = tela;
+
+      boton.addEventListener("click", () => {
+
+        // Marcar la tela seleccionada
+        grid.querySelectorAll(".prenda-colegio-card")
+          .forEach(b => b.classList.remove("seleccionado"));
+
+        boton.classList.add("seleccionado");
+
+        // Continuar hacia categorías
+        const categorias =
+          document.getElementById("categorias");
+
+        if (categorias) {
+          categorias.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+        }
+
+      });
+
+      grid.appendChild(boton);
+
     });
 
-    grid.appendChild(boton);
-  });
+    contenedor.appendChild(grid);
 
-  panel.append(titulo, grid);
+  } else {
 
-  panel.scrollIntoView({
+    const mensaje = document.createElement("p");
+    mensaje.textContent =
+      "Tipos de tela pendientes de configurar para esta prenda.";
+
+    mensaje.style.marginTop = "15px";
+    contenedor.appendChild(mensaje);
+
+  }
+
+  contenedor.scrollIntoView({
     behavior: "smooth",
     block: "start"
   });
+
 }
+
 
 // =====================================
 // 9. INICIAR PÁGINA
