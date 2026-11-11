@@ -307,13 +307,76 @@ const prendas = [
     boton.className = "prenda-colegio-card";
     boton.textContent = prenda;
 
+    
+boton.addEventListener("click", () => {
+
+  colegioSeleccionado = colegio;
+  prendaSeleccionada = prenda;
+
+  if (prenda === "Buzos") {
+    mostrarTiposTela();
+    return;
+  }
+
+  const categorias = document.getElementById("categorias");
+
+  if (categorias) {
+    categorias.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+});
+
+
+    grid.appendChild(boton);
+  });
+
+  contenedor.append(titulo, descripcion, grid);
+
+  contenedor.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+
+function mostrarTiposTela() {
+
+  const contenedor = document.getElementById("prendas-del-colegio");
+
+  if (!contenedor) return;
+
+  let panel = document.getElementById("panel-tipos-tela");
+
+  if (!panel) {
+    panel = document.createElement("div");
+    panel.id = "panel-tipos-tela";
+    contenedor.appendChild(panel);
+  }
+
+  const tiposTela = [
+    "Polialgodón",
+    "Poliéster",
+    "Algodón"
+  ];
+
+  panel.innerHTML = "";
+
+  const titulo = document.createElement("h2");
+  titulo.textContent = "Selecciona el tipo de tela";
+
+  const grid = document.createElement("div");
+  grid.className = "prendas-colegio-grid";
+
+  tiposTela.forEach(tela => {
+
+    const boton = document.createElement("button");
+    boton.type = "button";
+    boton.className = "prenda-colegio-card";
+    boton.textContent = tela;
+
     boton.addEventListener("click", () => {
-
-      colegioSeleccionado = colegio;
-      prendaSeleccionada = prenda;
-
-      const categorias =
-        document.getElementById("categorias");
+      const categorias = document.getElementById("categorias");
 
       if (categorias) {
         categorias.scrollIntoView({
@@ -326,9 +389,9 @@ const prendas = [
     grid.appendChild(boton);
   });
 
-  contenedor.append(titulo, descripcion, grid);
+  panel.append(titulo, grid);
 
-  contenedor.scrollIntoView({
+  panel.scrollIntoView({
     behavior: "smooth",
     block: "start"
   });
