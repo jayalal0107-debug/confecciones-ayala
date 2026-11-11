@@ -354,6 +354,35 @@ body {
   }
 }
 
+/* REDUCIR BOTONES HOMBRE Y MUJER */
+
+.genero-botones {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+}
+
+.genero-botones button {
+  flex: 0 0 250px;
+  width: 250px;
+  min-height: 60px;
+  padding: 10px 15px;
+  font-size: 20px;
+  border-radius: 12px;
+}
+
+/* ADAPTACIÓN A CELULARES */
+@media (max-width: 600px) {
+  .genero-botones button {
+    flex: 1 1 130px;
+    width: auto;
+    min-height: 50px;
+    font-size: 16px;
+  }
+}
+
 /* Selección de colegios */
 .colegios-grid {
   display: grid;
