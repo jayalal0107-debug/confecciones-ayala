@@ -356,7 +356,7 @@ function mostrarTiposTela() {
 
   const tiposTela = [
     "Polinam",
-    "Polialgodó"
+    "Polialgodón"
 
   ];
 
