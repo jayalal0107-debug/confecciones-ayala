@@ -668,20 +668,20 @@ html {
   background: #f5f8ff;
   border: 1px solid #dce6f5;
   border-radius: 14px;
-  padding: 15px 10px;
+  padding: 10px 8px;
   text-align: center;
   transition: 0.2s;
 }
 
 .colegio-destacado span {
   display: block;
-  font-size: 26px;
-  margin-bottom: 8px;
+  font-size: 23px;
+  margin-bottom: 5px;
 }
 
 .colegio-destacado h3 {
   color: #123e82;
-  font-size: 17px;
+  font-size: 16px;
 }
 
 .colegio-destacado:hover {
@@ -700,7 +700,7 @@ html {
   }
 
   .colegio-destacado {
-    padding: 20px 12px;
+    padding: 12px 8px;
   }
 
   .colegio-destacado h3 {
