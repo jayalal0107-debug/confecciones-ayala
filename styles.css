@@ -767,3 +767,11 @@ html {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* PRENDA SELECCIONADA */
+
+.prenda-colegio-card.seleccionado {
+  background: #e4eeff;
+  border: 2px solid #1957b7;
+  color: #123e82;
+}

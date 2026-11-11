@@ -310,6 +310,13 @@ const prendas = [
     
 boton.addEventListener("click", () => {
 
+  // Quitar la selección de los demás botones
+  grid.querySelectorAll(".prenda-colegio-card")
+    .forEach(b => b.classList.remove("seleccionado"));
+
+  // Marcar la prenda seleccionada
+  boton.classList.add("seleccionado");
+
   colegioSeleccionado = colegio;
   prendaSeleccionada = prenda;
 
