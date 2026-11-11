@@ -355,9 +355,9 @@ function mostrarTiposTela() {
   }
 
   const tiposTela = [
-    "Polialgodón",
-    "Poliéster",
-    "Algodón"
+    "Polinam",
+    "Polialgodó"
+
   ];
 
   panel.innerHTML = "";
