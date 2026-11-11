@@ -1,0 +1,765 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f7fb;
+  color: #1a1a1a;
+}
+
+.top-bar {
+  background-color: #0d3f8a;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.header {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.logo h1 {
+  color: #0d3f8a;
+  font-size: 32px;
+}
+
+.logo span {
+  color: #444;
+  font-size: 14px;
+}
+
+.search-box {
+  display: flex;
+  flex: 1;
+  max-width: 500px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #0d3f8a;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+}
+
+.search-box button {
+  padding: 12px 20px;
+  border: none;
+  background-color: #0d3f8a;
+  color: white;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+}
+
+.header-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.header-icons a {
+  text-decoration: none;
+  color: #0d3f8a;
+  font-weight: bold;
+}
+
+.navbar {
+  background-color: #1456c0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 15px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 40px;
+  background: linear-gradient(to right, #dce9ff, #ffffff);
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h2 {
+  font-size: 50px;
+  color: #0d3f8a;
+  margin-bottom: 15px;
+}
+
+.hero-text p {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #ffc107;
+  color: #0d3f8a;
+  padding: 12px 22px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 12px;
+}
+
+.categories,
+.products,
+.tailoring,
+.benefits {
+  padding: 40px;
+}
+
+.categories h2,
+.products h2,
+.tailoring h2 {
+  color: #0d3f8a;
+  margin-bottom: 20px;
+  font-size: 30px;
+}
+
+.category-grid,
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+}
+
+.category-card {
+  background-color: white;
+  padding: 30px 20px;
+  text-align: center;
+  border-radius: 12px;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.product-card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  margin-bottom: 10px;
+  color: #0d3f8a;
+}
+
+.product-card p {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.product-card button {
+  background-color: #0d3f8a;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tailoring {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eaf2ff;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.tailoring-text {
+  flex: 1;
+  min-width: 280px;
+}
+
+.tailoring-image img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+}
+
+.benefits {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  background-color: white;
+  text-align: center;
+}
+
+.benefit {
+  background-color: #f2f6ff;
+  padding: 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  color: #0d3f8a;
+}
+
+.footer {
+  background-color: #0d3f8a;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+.whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  padding: 14px 20px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: bold;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* CONFECCIONES AYALA 2.0 */
+
+/* Portada principal */
+.hero {
+  min-height: 420px;
+  padding: 45px 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 35px;
+}
+
+/* Texto de portada */
+.hero-text {
+  flex: 1;
+}
+
+.hero-text h2 {
+  font-size: clamp(32px, 4vw, 55px);
+  line-height: 1.1;
+  margin-bottom: 18px;
+}
+
+/* Fotografía principal */
+.hero-image {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 18px;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 30px 20px;
+    gap: 20px;
+  }
+
+  .hero-text,
+  .hero-image {
+    width: 100%;
+  }
+
+  .hero-image img {
+    height: 250px;
+  }
+
+  .hero-text h2 {
+    font-size: 34px;
+  }
+}
+
+/* BOTONES HOMBRE Y MUJER */
+
+.genero-botones {
+  display: flex;
+  gap: 20px;
+  margin: 25px 0;
+  width: 100%;
+}
+
+.genero-botones button {
+  flex: 1;
+  padding: 25px;
+  font-size: 24px;
+  font-weight: bold;
+  border: 2px solid #1957b7;
+  border-radius: 15px;
+  background: white;
+  color: #1957b7;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.genero-botones button.activo {
+  background: #1957b7;
+  color: white;
+}
+
+.genero-botones button:hover {
+  background: #e5efff;
+  color: #1957b7;
+}
+
+.genero-botones button.activo:hover {
+  background: #154a9c;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .genero-botones {
+    gap: 10px;
+  }
+
+  .genero-botones button {
+    padding: 15px 8px;
+    font-size: 18px;
+  }
+}
+
+/* Selección de colegios */
+.colegios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 15px;
+  margin: 25px 0;
+}
+
+.colegio-card {
+  padding: 24px 15px;
+  background: white;
+  border: 2px solid #dce4f0;
+  border-radius: 14px;
+  color: #164994;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.colegio-card:hover,
+.colegio-card.activo {
+  background: #1957b7;
+  border-color: #1957b7;
+  color: white;
+}
+
+.resultado-colegio:not(:empty) {
+  background: #eaf1ff;
+  color: #164994;
+  border-radius: 12px;
+  padding: 22px;
+  font-weight: bold;
+}
+
+/* FOTOGRAFÍA DE PRODUCTOS ESCOLARES */
+
+.imagen-producto {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  height: 350px;
+  object-fit: contain;
+  background: white;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 20px 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* =====================================
+   CONFECCIONES AYALA 2.0
+   PASO 1 - ENCABEZADO MODERNO
+===================================== */
+
+/* Barra superior */
+.top-bar {
+  background: #123e82;
+  padding: 9px 20px;
+  text-align: center;
+}
+
+.top-bar p {
+  color: white;
+  font-size: 13px;
+  margin: 0;
+}
+
+/* Encabezado */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 20px 5%;
+  background: white;
+}
+
+/* Nombre de la tienda */
+.logo h1 {
+  font-size: 30px;
+  font-weight: 800;
+  color: #123e82;
+  margin: 0;
+}
+
+.logo span {
+  font-size: 13px;
+  color: #667085;
+}
+
+/* Buscador */
+.search-box {
+  display: flex;
+  flex: 1;
+  max-width: 520px;
+}
+
+.search-box input {
+  flex: 1;
+  min-width: 0;
+  padding: 13px 15px;
+  border: 1px solid #d0d5dd;
+  border-radius: 10px 0 0 10px;
+  font-size: 15px;
+}
+
+.search-box button {
+  padding: 13px 22px;
+  border: none;
+  background: #1957b7;
+  color: white;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+}
+
+/* Cuenta y carrito */
+.header-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.header-icons a {
+  color: #123e82;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Menú */
+.navbar {
+  background: #1957b7;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px 20px;
+  flex-wrap: wrap;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.navbar a:hover {
+  color: #ffca28;
+}
+
+/* Diseño para celulares */
+@media (max-width: 768px) {
+  .header {
+    flex-wrap: wrap;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+
+  .logo {
+    width: 100%;
+  }
+
+  .logo h1 {
+    font-size: 25px;
+  }
+
+  .search-box {
+    order: 3;
+    min-width: 100%;
+  }
+
+  .navbar {
+    gap: 15px;
+    padding: 13px;
+  }
+
+  .navbar a {
+    font-size: 13px;
+  }
+}
+
+/* =====================================
+   AYALA 2.0 - PORTADA MODERNA
+===================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 45px;
+  min-height: 0;
+  padding: 45px 5%;
+  background: linear-gradient(
+    110deg,
+    #e1ecff 0%,
+    #f8fbff 100%
+  );
+}
+
+.hero-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-etiqueta {
+  color: #1957b7;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+.hero-text h2 {
+  font-size: clamp(34px, 3.6vw, 54px);
+  line-height: 1.12;
+  color: #123e82;
+  margin-bottom: 20px;
+}
+
+.hero-text h2 span {
+  display: block;
+  color: #1957b7;
+}
+
+.hero-descripcion {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #475467;
+  max-width: 570px;
+  margin-bottom: 25px;
+}
+
+.hero-image {
+  flex: 1;
+  min-width: 0;
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  height: 360px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 18px;
+}
+
+/* Portada para celulares */
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    padding: 35px 20px;
+    gap: 25px;
+  }
+
+  .hero-text,
+  .hero-image {
+    width: 100%;
+  }
+
+  .hero-text h2 {
+    font-size: 36px;
+  }
+
+  .hero-descripcion {
+    font-size: 16px;
+  }
+
+  .hero-image img {
+    height: 250px;
+  }
+}
+
+/* =====================================
+   AYALA 2.0 - COLEGIOS DESTACADOS
+===================================== */
+
+.colegios-destacados {
+  padding: 55px 5%;
+  background: #ffffff;
+}
+
+.colegios-encabezado {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.colegios-encabezado h2 {
+  color: #123e82;
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+.colegios-encabezado p {
+  color: #667085;
+  font-size: 17px;
+}
+
+.colegios-destacados-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.colegio-destacado {
+  background: #f5f8ff;
+  border: 1px solid #dce6f5;
+  border-radius: 16px;
+  padding: 30px 20px;
+  text-align: center;
+  transition: 0.2s;
+}
+
+.colegio-destacado span {
+  display: block;
+  font-size: 34px;
+  margin-bottom: 15px;
+}
+
+.colegio-destacado h3 {
+  color: #123e82;
+  font-size: 19px;
+}
+
+.colegio-destacado:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 768px) {
+  .colegios-destacados {
+    padding: 35px 20px;
+  }
+
+  .colegios-destacados-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .colegio-destacado {
+    padding: 20px 12px;
+  }
+
+  .colegio-destacado h3 {
+    font-size: 15px;
+  }
+
+  .colegios-encabezado h2 {
+    font-size: 26px;
+  }
+}
+
+/* SELECCIÓN DE COLEGIOS */
+
+.colegio-destacado {
+  width: 100%;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.colegio-destacado.seleccionado {
+  background: #e4eeff;
+  border: 2px solid #1957b7;
+}
+
+#prendas-del-colegio:not(:empty) {
+  margin-top: 30px;
+  padding: 25px;
+  border-radius: 16px;
+  background: #f5f8ff;
+}
+
+#prendas-del-colegio h2 {
+  color: #123e82;
+  margin-bottom: 10px;
+}
+
+.prendas-colegio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.prenda-colegio-card {
+  background: white;
+  border: 1px solid #dce6f5;
+  border-radius: 12px;
+  padding: 25px 12px;
+  color: #123e82;
+  font-size: 17px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.prenda-colegio-card:hover {
+  background: #1957b7;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .prendas-colegio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Confecciones Ayala</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Barra superior -->
+  <div class="top-bar">
+    <p>🚚 Envíos a Lima y provincias | 🔒 Compra segura | 📞 Atención personalizada</p>
+  </div>
+
+  <!-- Encabezado -->
+  <header class="header">
+    <div class="logo">
+      <h1>Confecciones Ayala</h1>
+      <span>Andrés Ayala Janampa</span>
+    </div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Buscar productos...">
+      <button>Buscar</button>
+    </div>
+
+    <div class="header-icons">
+      <a href="#">Mi cuenta</a>
+      <a href="#">Mi carrito</a>
+    </div>
+  </header>
+
+  <!-- Menú -->
+  <nav class="navbar">
+    <a href="#">Inicio</a>
+    <a href="#">Productos</a>
+    <a href="#">Uniformes Escolares</a>
+    <a href="#">Ropa Casual</a>
+    <a href="#">Costura a Medida</a>
+    <a href="#">Promociones</a>
+    <a href="#">Contacto</a>
+  </nav>
+
+  <!-- Banner principal -->
+  
+<!-- Banner principal -->
+<section class="hero">
+
+  <div class="hero-text">
+
+    <p class="hero-etiqueta">
+      CONFECCIONES AYALA
+    </p>
+
+    <h2>
+      Uniformes escolares
+      <span>con calidad y estilo</span>
+    </h2>
+
+    <p class="hero-descripcion">
+      Encuentra buzos, casacas, pantalones,
+      camisas y polos escolares para tu colegio.
+      Calidad, comodidad y atención personalizada.
+    </p>
+
+  
+<a href="#colegios" class="btn">
+  Explorar uniformes →
+</a>
+
+
+  </div>
+
+  <div class="hero-image">
+    <img
+      src="imagenes/uniformes.jpg"
+      alt="Uniformes escolares Confecciones Ayala">
+  </div>
+
+</section>
+
+
+<!-- COLEGIOS DESTACADOS -->
+<section class="colegios-destacados" id="colegios">
+
+  <div class="colegios-encabezado">
+    <h2>Compra según tu colegio</h2>
+    <p>
+      Selecciona tu institución educativa
+      y encuentra sus uniformes escolares.
+    </p>
+  </div>
+
+  
+<div class="colegios-destacados-grid">
+
+  <button type="button" class="colegio-destacado"
+    onclick="seleccionarColegio('Néstor Escudero Otero')">
+    <span>🏫</span>
+    <h3>Néstor Escudero Otero</h3>
+  </button>
+
+  <button type="button" class="colegio-destacado"
+    onclick="seleccionarColegio('Fe y Alegría')">
+    <span>🏫</span>
+    <h3>Fe y Alegría</h3>
+  </button>
+
+  <button type="button" class="colegio-destacado"
+    onclick="seleccionarColegio('Micaela Bastidas')">
+    <span>🏫</span>
+    <h3>Micaela Bastidas</h3>
+  </button>
+
+  <button type="button" class="colegio-destacado"
+    onclick="seleccionarColegio('Gran Pascal')">
+    <span>🏫</span>
+    <h3>Gran Pascal</h3>
+  </button>
+
+  <button type="button" class="colegio-destacado"
+    onclick="seleccionarColegio('César Vallejo')">
+    <span>🏫</span>
+    <h3>César Vallejo</h3>
+  </button>
+
+  <button type="button" class="colegio-destacado"
+    onclick="seleccionarColegio('Crisanto Salinas')">
+    <span>🏫</span>
+    <h3>Crisanto Salinas</h3>
+  </button>
+
+</div>
+
+<div id="prendas-del-colegio"></div>
+
+
+</section>
+
+  <!-- Categorías -->
+  
+<section class="categories" id="categorias">
+  <h2>Categorías</h2>
+
+  
+<div class="genero-botones">
+  <button type="button"
+          onclick="mostrarCategorias('hombre')">
+    👔 Hombre
+  </button>
+
+  <button type="button"
+          onclick="mostrarCategorias('mujer')">
+    👗 Mujer
+  </button>
+</div>
+
+</section>
+
+<!-- Catálogo de productos por colegio -->
+<section id="lista-productos" class="catalogo-categoria">
+</section>
+
+  <!-- Productos -->
+  <section class="products">
+    <h2>Productos Destacados</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x180?text=Buzo+Escolar" alt="Buzo Escolar">
+        <h3>Buzo Escolar</h3>
+        <p>S/ 65.00</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x180?text=Casaca+Deportiva" alt="Casaca Deportiva">
+        <h3>Casaca Deportiva</h3>
+        <p>S/ 75.00</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x180?text=Pantalon+Escolar" alt="Pantalón Escolar">
+        <h3>Pantalón Escolar</h3>
+        <p>S/ 60.00</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x180?text=Polo+Escolar" alt="Polo Escolar">
+        <h3>Polo Escolar</h3>
+        <p>S/ 45.00</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x180?text=Jumper+Escolar" alt="Jumper Escolar">
+        <h3>Jumper Escolar</h3>
+        <p>S/ 70.00</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://via.placeholder.com/200x180?text=Medias+Escolares" alt="Medias Escolares">
+        <h3>Medias Escolares</h3>
+        <p>S/ 15.00</p>
+        <button>Agregar al carrito</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Sección costura -->
+  <section class="tailoring">
+    <div class="tailoring-text">
+      <h2>Servicio de Costura</h2>
+      <p>Personalizamos tus prendas con la mejor calidad. Realizamos arreglos, confecciones y pedidos especiales.</p>
+      <a href="#" class="btn">Solicita tu pedido</a>
+    </div>
+    <div class="tailoring-image">
+      <img src="https://via.placeholder.com/400x250?text=Servicio+de+Costura" alt="Costura">
+    </div>
+  </section>
+
+  <!-- Beneficios -->
+  <section class="benefits">
+    <div class="benefit">✅ Compra segura</div>
+    <div class="benefit">🚚 Envíos rápidos</div>
+    <div class="benefit">🎧 Atención personalizada</div>
+    <div class="benefit">💙 Calidad garantizada</div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>&copy; 2026 Confecciones Ayala - Andrés Ayala Janampa. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Botón WhatsApp -->
+  <a href="https://wa.me/51999999999" class="whatsapp" target="_blank">WhatsApp</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
