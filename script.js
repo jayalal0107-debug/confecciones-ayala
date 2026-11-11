@@ -354,11 +354,18 @@ function mostrarTiposTela() {
     contenedor.appendChild(panel);
   }
 
-  const tiposTela = [
-    "Polinam",
-    "Polialgodón"
-
-  ];
+const tiposTela = prendaSeleccionada === "Pantalones"
+  ? [
+      "Gabardina",
+      "Drill",
+      "Tergal",
+      "Poliviscosa",
+      "Lanilla"
+    ]
+  : [
+      "Polinam",
+      "Polialgodón"
+    ];
 
   panel.innerHTML = "";
 
