@@ -658,28 +658,30 @@ html {
 
 .colegios-destacados-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 15px;
+  max-width: 1150px;
+  margin: 0 auto;
 }
 
 .colegio-destacado {
   background: #f5f8ff;
   border: 1px solid #dce6f5;
-  border-radius: 16px;
-  padding: 30px 20px;
+  border-radius: 14px;
+  padding: 15px 10px;
   text-align: center;
   transition: 0.2s;
 }
 
 .colegio-destacado span {
   display: block;
-  font-size: 34px;
-  margin-bottom: 15px;
+  font-size: 26px;
+  margin-bottom: 8px;
 }
 
 .colegio-destacado h3 {
   color: #123e82;
-  font-size: 19px;
+  font-size: 17px;
 }
 
 .colegio-destacado:hover {
