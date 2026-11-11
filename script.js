@@ -264,6 +264,12 @@ function seleccionarColegio(colegio) {
   colegioSeleccionado = colegio;
   prendaSeleccionada = null;
 
+const panelTelas = document.getElementById("tipos-tela-colegio");
+
+if (panelTelas) {
+  panelTelas.innerHTML = "";
+}
+
   const contenedor =
     document.getElementById("prendas-del-colegio");
 
@@ -310,20 +316,21 @@ const prendas = [
     
 boton.addEventListener("click", () => {
 
-  // Quitar la selección de los demás botones
+  // Desmarcar todas las prendas
   grid.querySelectorAll(".prenda-colegio-card")
     .forEach(b => b.classList.remove("seleccionado"));
 
-  // Marcar la prenda seleccionada
+  // Marcar la prenda elegida
   boton.classList.add("seleccionado");
 
   colegioSeleccionado = colegio;
   prendaSeleccionada = prenda;
 
-  if (prenda === "Buzos") {
-    mostrarTiposTela();
-    return;
-  }
+  // Mostrar las telas en un recuadro independiente
+  mostrarTiposTela();
+
+});
+
 
   const categorias = document.getElementById("categorias");
 
