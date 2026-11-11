@@ -740,19 +740,21 @@ html {
 .prendas-colegio-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 20px;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .prenda-colegio-card {
   background: white;
   border: 1px solid #dce6f5;
-  border-radius: 12px;
-  padding: 25px 12px;
+  border-radius: 10px;
+  padding: 12px 10px;
+  min-height: 55px;
   color: #123e82;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+  transition: 0.2s;
 }
 
 .prenda-colegio-card:hover {
