@@ -1529,3 +1529,17 @@ html {
     margin-bottom: 30px;
   }
 }
+
+/* PASOS YA COMPLETADOS */
+
+.paso-compra.completado {
+  background: #e4eeff;
+  border-color: #8fb3e8;
+  color: #1957b7;
+}
+
+.paso-compra.activo {
+  background: #1957b7;
+  border-color: #1957b7;
+  color: white;
+}

@@ -148,7 +148,7 @@ function seleccionarColegio(colegio) {
   prendaSeleccionada = null;
   telaSeleccionada = null;
   generoSeleccionado = null;
-
+actualizarPasosCompra();
   ocultarCategorias();
   limpiarProductos();
 
@@ -221,7 +221,7 @@ function seleccionarColegio(colegio) {
       prendaSeleccionada = prenda;
       telaSeleccionada = null;
       generoSeleccionado = null;
-
+actualizarPasosCompra();
       ocultarCategorias();
       limpiarProductos();
 
@@ -318,7 +318,7 @@ function mostrarTiposTela() {
 
       telaSeleccionada = tela;
       generoSeleccionado = null;
-
+actualizarPasosCompra();
       limpiarProductos();
 
       // Mostrar categorías al seleccionar tela
