@@ -1409,7 +1409,7 @@ html {
 .hero-image img {
   display: block;
   width: 100%;
-  max-width: 540px;
+  max-width: 440px;
   height: auto;
   object-fit: contain;
   border-radius: 16px;
@@ -1421,5 +1421,111 @@ html {
   .hero-image img {
     max-width: 100%;
     height: auto;
+  }
+}
+
+/* AJUSTE DEL BOTÓN WHATSAPP EN CELULARES */
+
+@media (max-width: 768px) {
+  .whatsapp {
+    right: 10px;
+    bottom: 10px;
+    padding: 9px 12px;
+    font-size: 12px;
+    border-radius: 25px;
+  }
+}
+
+/* =====================================
+   INDICADOR DE PASOS DE COMPRA
+===================================== */
+
+.pasos-compra {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto 35px;
+}
+
+.paso-compra {
+  background: #edf3fc;
+  color: #1957b7;
+  border: 2px solid #dce6f5;
+  border-radius: 12px;
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.paso-compra.activo {
+  background: #1957b7;
+  border-color: #1957b7;
+  color: white;
+}
+
+/* Adaptación a celulares */
+
+@media (max-width: 768px) {
+  .pasos-compra {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 5px;
+    margin-bottom: 25px;
+  }
+
+  .paso-compra {
+    padding: 12px 3px;
+    font-size: 11px;
+    border-radius: 8px;
+  }
+}
+
+/* =====================================
+   CENTRAR TÍTULO DE SECUENCIA DE COMPRA
+===================================== */
+
+.pasos-compra-titulo {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto 25px;
+  padding: 0 15px;
+}
+
+.pasos-compra-titulo h2 {
+  color: #123e82;
+  font-size: 34px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.pasos-compra-titulo p {
+  color: #667085;
+  font-size: 17px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.pasos-compra {
+  width: 100%;
+  max-width: 1150px;
+  margin: 0 auto 40px;
+}
+
+/* Adaptación para celulares */
+
+@media (max-width: 768px) {
+  .pasos-compra-titulo h2 {
+    font-size: 26px;
+  }
+
+  .pasos-compra-titulo p {
+    font-size: 15px;
+  }
+
+  .pasos-compra {
+    margin-bottom: 30px;
   }
 }
