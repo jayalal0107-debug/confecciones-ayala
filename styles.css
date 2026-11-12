@@ -992,3 +992,193 @@ html {
     padding: 18px;
   }
 }
+/* =========================================================
+   CONFECCIONES AYALA — ENCABEZADO Y PORTADA MODERNIZADOS
+   Se agrega al final para conservar las reglas y funciones.
+   ========================================================= */
+
+/* Franja superior limpia y legible */
+.top-bar {
+  background: #123e82;
+  padding: 9px 20px;
+}
+.top-bar p {
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Cabecera equilibrada */
+.header {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(280px, 520px) auto;
+  align-items: center;
+  gap: clamp(18px, 2.5vw, 38px);
+  padding: 22px max(4%, calc((100vw - 1440px) / 2));
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(18, 62, 130, .045);
+}
+.logo h1 {
+  font-size: clamp(23px, 2.1vw, 32px);
+  line-height: 1.14;
+  letter-spacing: -.6px;
+  color: #123e82;
+}
+.logo span {
+  display: block;
+  margin-top: 6px;
+  color: #667085;
+  font-size: 13px;
+}
+.search-box {
+  width: 100%;
+  max-width: 520px;
+  min-width: 0;
+  display: flex;
+}
+.search-box input {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 16px;
+  border: 1px solid #cdd9ec;
+  border-radius: 12px 0 0 12px;
+  background: #fafcff;
+  outline-offset: 2px;
+}
+.search-box input:focus {
+  border-color: #1957b7;
+  outline: 2px solid rgba(25,87,183,.13);
+}
+.search-box button {
+  padding: 13px 24px;
+  border-radius: 0 12px 12px 0;
+  background: #1957b7;
+  font-weight: 700;
+  transition: background .2s;
+}
+.search-box button:hover { background: #123e82; }
+.header-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  white-space: nowrap;
+}
+.header-icons a {
+  font-size: 14px;
+  color: #123e82;
+  text-decoration: none;
+}
+.header-icons a:hover { color: #1957b7; text-decoration: underline; }
+
+/* Navegación principal */
+.navbar {
+  gap: clamp(14px, 2.2vw, 34px);
+  padding: 15px 20px;
+  background: #1957b7;
+}
+.navbar a {
+  font-size: 14px;
+  line-height: 1.35;
+  transition: color .2s;
+}
+.navbar a:focus-visible,
+.header-icons a:focus-visible,
+.btn:focus-visible {
+  outline: 3px solid #ffc21a;
+  outline-offset: 3px;
+}
+
+/* Hero: conserva imagen, texto y CTA existentes */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(28px, 4vw, 64px);
+  min-height: 0;
+  padding: clamp(32px, 4vw, 60px) max(4%, calc((100vw - 1440px) / 2));
+  background: linear-gradient(110deg, #e5efff 0%, #f9fbff 100%);
+}
+.hero-text { min-width: 0; max-width: 640px; }
+.hero-etiqueta {
+  font-size: 13px !important;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: #1957b7;
+  margin-bottom: 14px !important;
+}
+.hero-text h2 {
+  font-size: clamp(34px, 3.6vw, 58px);
+  line-height: 1.11;
+  letter-spacing: -1.1px;
+  color: #123e82;
+  margin-bottom: 20px;
+}
+.hero-text h2 span { display: block; color: #1957b7; }
+.hero-descripcion {
+  color: #475467;
+  font-size: clamp(16px, 1.2vw, 19px) !important;
+  line-height: 1.65;
+  max-width: 570px;
+  margin-bottom: 28px !important;
+}
+.hero .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50px;
+  padding: 13px 24px;
+  border-radius: 11px;
+  color: #123e82;
+  background: #ffc21a;
+  box-shadow: 0 5px 15px rgba(181,125,0,.13);
+  transition: transform .2s, background .2s;
+}
+.hero .btn:hover { transform: translateY(-2px); background: #ffd045; }
+.hero-image { width: 100%; min-width: 0; }
+.hero-image img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: clamp(310px, 31vw, 460px);
+  object-fit: cover;
+  object-position: center;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(18, 62, 130, .12);
+}
+
+/* Tablets */
+@media (max-width: 1100px) {
+  .header { grid-template-columns: 1fr auto; padding: 18px 4%; }
+  .search-box { grid-column: 1 / -1; grid-row: 2; max-width: none; }
+  .header-icons { grid-column: 2; grid-row: 1; }
+  .hero { padding: 35px 4%; gap: 28px; }
+  .hero-text h2 { font-size: clamp(32px, 4.3vw, 48px); }
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+  .top-bar { padding: 8px 12px; }
+  .top-bar p { font-size: 11px; }
+  .header { grid-template-columns: minmax(0,1fr) auto; gap: 15px; padding: 16px 20px; }
+  .logo { width: auto; min-width: 0; }
+  .logo h1 { font-size: 23px; }
+  .logo span { font-size: 11px; }
+  .header-icons { gap: 12px; }
+  .header-icons a { font-size: 12px; }
+  .search-box { order: initial; min-width: 0; grid-column: 1 / -1; }
+  .search-box input { padding: 11px 12px; }
+  .search-box button { padding: 11px 16px; }
+  .navbar { gap: 10px 18px; padding: 13px 12px; }
+  .navbar a { font-size: 12px; }
+  .hero { grid-template-columns: 1fr; gap: 25px; padding: 32px 20px 38px; }
+  .hero-text, .hero-image { width: 100%; max-width: none; }
+  .hero-text h2 { font-size: clamp(32px, 8vw, 42px); letter-spacing: -.5px; }
+  .hero-descripcion { font-size: 16px !important; }
+  .hero-image img { height: 270px; border-radius: 16px; }
+}
+@media (max-width: 390px) {
+  .header-icons { gap: 8px; }
+  .header-icons a { font-size: 11px; }
+  .logo h1 { font-size: 20px; }
+  .hero-image img { height: 230px; }
+}
