@@ -848,12 +848,13 @@ html {
   color: #123e82;
 }
 
-/* BOTONES DE TIPOS DE TELA MÁS PEQUEÑOS */
+/* =====================================
+   CONFECCIONES AYALA
+   TELAS Y CATEGORÍAS
+===================================== */
 
-/* Distribución de botones */
-#tipos-tela-colegio .prendas-colegio-grid {
-  display: grid;
-  
+/* Botones de tela */
+
 #tipos-tela-colegio .prendas-colegio-grid {
   display: grid;
   grid-template-columns: repeat(3, 120px);
@@ -866,32 +867,14 @@ html {
   min-height: 42px;
   padding: 8px 6px;
   font-size: 14px;
-}
-
-  gap: 10px;
-  margin-top: 15px;
-}
-
-/* Tamaño de cada botón de tela */
-#tipos-tela-colegio .prenda-colegio-card {
-  width: 100%;
-  min-height: 42px;
-  padding: 8px 10px;
-  font-size: 14px;
   border-radius: 8px;
 }
 
-/* Diseño para celulares */
-@media (max-width: 600px) {
-  #tipos-tela-colegio .prendas-colegio-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* CATEGORÍAS EN RECUADRO INDEPENDIENTE */
+/* Categorías: mismo formato que telas */
 
 #categorias {
-  margin: 25px 5%;
+  width: 100%;
+  margin: 20px 0 0;
   padding: 25px;
   background: #f5f8ff;
   border-radius: 16px;
@@ -900,10 +883,29 @@ html {
 #categorias h2 {
   color: #123e82;
   font-size: 26px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
-/* CATÁLOGO SEPARADO */
+/* Botones Hombre y Mujer */
+
+#categorias .genero-botones {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 10px;
+  margin: 15px 0 0;
+}
+
+#categorias .genero-botones button {
+  flex: 0 0 120px;
+  width: 120px;
+  min-height: 42px;
+  padding: 8px 6px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+/* Catálogo independiente */
 
 #lista-productos:not(:empty) {
   margin: 20px 5%;
@@ -912,10 +914,81 @@ html {
   border-radius: 16px;
 }
 
-/* PRODUCTOS DESTACADOS INDEPENDIENTES */
+/* Productos destacados */
 
-#productos-destacados {
-  margin-top: 50px;
-  padding: 40px 5%;
+.products {
+  margin-top: 30px;
   background: #ffffff;
+}
+
+/* Adaptación para celulares */
+
+@media (max-width: 600px) {
+
+  #tipos-tela-colegio .prendas-colegio-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  #categorias {
+    padding: 18px;
+  }
+
+  #categorias .genero-botones button {
+    flex: 0 0 120px;
+  }
+}
+
+/* MISMO FORMATO PARA TELAS Y CATEGORÍAS */
+
+#colegios #tipos-tela-colegio:not(:empty),
+#colegios #categorias {
+  width: 100%;
+  margin: 20px 0 0;
+  padding: 25px;
+  background: #f5f8ff;
+  border-radius: 16px;
+}
+
+/* Mismos títulos */
+#colegios #tipos-tela-colegio h2,
+#colegios #categorias h2 {
+  color: #123e82;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+/* Mismas descripciones */
+#colegios #tipos-tela-colegio p,
+#colegios #categorias .descripcion-categoria {
+  color: #475467;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* Botones de categorías */
+#colegios #categorias .genero-botones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 15px 0 0;
+  width: 100%;
+}
+
+/* Botones Hombre y Mujer */
+#colegios #categorias .genero-botones button {
+  flex: 0 0 120px;
+  width: 120px;
+  min-height: 42px;
+  padding: 8px 6px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+/* Adaptación para celulares */
+@media (max-width: 600px) {
+  #colegios #tipos-tela-colegio:not(:empty),
+  #colegios #categorias {
+    padding: 18px;
+  }
 }
