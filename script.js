@@ -555,3 +555,27 @@ document.addEventListener("DOMContentLoaded", () => {
   ocultarCategorias();
 
 });
+
+/* MENÚ HAMBURGUESA */
+
+const botonMenu = document.querySelector(".menu-toggle");
+const menuPrincipal = document.querySelector("#menu-principal");
+
+if (botonMenu && menuPrincipal) {
+
+  botonMenu.addEventListener("click", () => {
+    const abierto = menuPrincipal.classList.toggle("menu-abierto");
+
+    botonMenu.setAttribute("aria-expanded", String(abierto));
+    botonMenu.textContent = abierto ? "✕ Cerrar" : "☰ Menú";
+  });
+
+  menuPrincipal.querySelectorAll("a").forEach(enlace => {
+    enlace.addEventListener("click", () => {
+      menuPrincipal.classList.remove("menu-abierto");
+      botonMenu.setAttribute("aria-expanded", "false");
+      botonMenu.textContent = "☰ Menú";
+    });
+  });
+
+}
