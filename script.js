@@ -579,3 +579,127 @@ if (botonMenu && menuPrincipal) {
   });
 
 }
+
+/* =====================================
+   BUSCADOR INTELIGENTE - AYALA
+===================================== */
+
+(function () {
+
+  const campo = document.getElementById("buscador-productos");
+  const boton = document.getElementById("btn-buscar");
+
+  if (!campo || !boton) return;
+
+  function normalizar(texto) {
+    return texto.toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .trim();
+  }
+
+  function buscar() {
+
+    const busqueda = normalizar(campo.value);
+
+    if (!busqueda) {
+      campo.focus();
+      return;
+    }
+
+    // 1. Buscar colegio
+    const colegio = Object.keys(colegiosArchivos).find(
+      nombre => normalizar(nombre).includes(busqueda)
+    );
+
+    if (colegio) {
+      seleccionarColegio(colegio);
+      return;
+    }
+
+    // 2. Buscar prendas
+    const prendas = [
+      "Buzos",
+      "Casacas",
+      "Combo 2 en 1",
+      "Pantalones",
+      "Camisas",
+      "Polos",
+      "Shorts Escolares",
+      "Medias Escolares"
+    ];
+
+    const prenda = prendas.find(nombre => {
+      const nombreNormal = normalizar(nombre);
+      return nombreNormal.includes(busqueda) ||
+             (busqueda.length >= 4 &&
+              busqueda.includes(nombreNormal));
+    });
+
+    if (prenda) {
+
+      alert(
+        "Buscas: " + prenda +
+        "\n\nPrimero selecciona tu colegio para continuar."
+      );
+
+      explorarUniformes();
+      return;
+    }
+
+    // 3. Buscar telas
+    const telas = [
+      "Polinam",
+      "Polialgodón",
+      "Gabardina",
+      "Drill",
+      "Tergal",
+      "Poliviscosa",
+      "Lanilla"
+    ];
+
+    const tela = telas.find(nombre =>
+      normalizar(nombre).includes(busqueda)
+    );
+
+    if (tela) {
+
+      alert(
+        "Buscas tela: " + tela +
+        "\n\nPrimero selecciona tu colegio y prenda."
+      );
+
+      explorarUniformes();
+      return;
+    }
+
+    // 4. Buscar arreglos de ropa
+    if (
+      busqueda.includes("arreglo") ||
+      busqueda.includes("costura") ||
+      busqueda.includes("basta") ||
+      busqueda.includes("entalle")
+    ) {
+
+      document.getElementById("costura")
+        ?.scrollIntoView({ behavior: "smooth" });
+
+      return;
+    }
+
+    // 5. Sin resultados
+    alert(
+      "No encontramos resultados para: " + campo.value
+    );
+  }
+
+  boton.addEventListener("click", buscar);
+
+  campo.addEventListener("keydown", function(evento) {
+    if (evento.key === "Enter") {
+      evento.preventDefault();
+      buscar();
+    }
+  });
+
+})();
