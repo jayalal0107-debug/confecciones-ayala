@@ -1182,3 +1182,70 @@ html {
   .logo h1 { font-size: 20px; }
   .hero-image img { height: 230px; }
 }
+/* BOTONES DE LA PORTADA */
+
+.hero-botones {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.btn-arreglos {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border: 2px solid #1957b7;
+  border-radius: 10px;
+  color: #1957b7;
+  background: transparent;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.btn-arreglos:hover {
+  background: #1957b7;
+  color: white;
+}
+
+/* ADAPTACIÓN A CELULARES */
+
+@media (max-width: 600px) {
+  .hero-botones {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .hero-botones a {
+    text-align: center;
+  }
+}
+
+/* AJUSTE FINAL DE PORTADA */
+
+@media (min-width: 769px) {
+  .hero {
+    min-height: 0;
+    padding-top: 28px;
+    padding-bottom: 28px;
+    gap: 30px;
+  }
+
+  .hero-image img {
+    height: 320px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-text h2 {
+    font-size: clamp(32px, 3.2vw, 48px);
+  }
+
+  .hero-descripcion {
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 18px;
+  }
+}
