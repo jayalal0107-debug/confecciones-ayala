@@ -453,3 +453,75 @@ function mostrarTiposTela() {
 document.addEventListener("DOMContentLoaded", () => {
   mostrarCategorias("hombre");
 });
+
+function explorarUniformes() {
+
+  // Ocultar Categorías (Hombre y Mujer)
+  const categorias =
+    document.getElementById("categorias");
+
+  if (categorias) {
+    categorias.style.display = "none";
+  }
+
+  // Mostrar Compra según tu colegio
+  const colegios =
+    document.querySelector(".colegios-destacados");
+
+  if (colegios) {
+    colegios.style.display = "";
+  }
+
+  // Mostrar Productos destacados
+  const productos =
+    document.querySelector(".products");
+
+  if (productos) {
+    productos.style.display = "";
+  }
+
+  // Llevar al cliente a Compra según tu colegio
+  if (colegios) {
+    colegios.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+}
+
+/* EXPLORAR UNIFORMES */
+
+function explorarUniformes() {
+
+  // Ocultar Categorías
+  const categorias =
+    document.getElementById("categorias");
+
+  if (categorias) {
+    categorias.style.display = "none";
+  }
+
+  // Mantener visible Compra según tu colegio
+  const colegios =
+    document.getElementById("colegios");
+
+  if (colegios) {
+    colegios.style.display = "";
+  }
+
+  // Mantener visible Productos Destacados
+  const productos =
+    document.querySelector(".products");
+
+  if (productos) {
+    productos.style.display = "";
+  }
+
+  // Desplazarse hasta los colegios
+  if (colegios) {
+    colegios.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+  }
+}
