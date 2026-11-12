@@ -265,6 +265,14 @@ function seleccionarColegio(colegio) {
   colegioSeleccionado = colegio;
   prendaSeleccionada = null;
 
+  
+const categorias = document.getElementById("categorias");
+
+if (categorias) {
+  categorias.style.display = "none";
+}
+
+
   const contenedor =
     document.getElementById("prendas-del-colegio");
 
@@ -328,6 +336,12 @@ function seleccionarColegio(colegio) {
 
       colegioSeleccionado = colegio;
       prendaSeleccionada = prenda;
+
+const categorias = document.getElementById("categorias");
+
+if (categorias) {
+  categorias.style.display = "none";
+}
 
       // Mostrar el recuadro independiente de telas
       mostrarTiposTela();
@@ -400,7 +414,33 @@ function mostrarTiposTela() {
       boton.className = "prenda-colegio-card";
       boton.textContent = tela;
 
-      boton.addEventListener("click", () => {
+      
+boton.addEventListener("click", () => {
+
+  // Desmarcar las demás telas
+  grid.querySelectorAll(".prenda-colegio-card")
+    .forEach(b => b.classList.remove("seleccionado"));
+
+  // Marcar la tela seleccionada
+  boton.classList.add("seleccionado");
+
+  // Mostrar Categorías (Hombre y Mujer)
+  const categorias =
+    document.getElementById("categorias");
+
+  if (categorias) {
+
+    categorias.style.display = "block";
+
+    categorias.scrollIntoView({
+      behavior: "smooth",
+      block: "start"
+    });
+
+  }
+
+});
+
 
         // Marcar la tela seleccionada
         grid.querySelectorAll(".prenda-colegio-card")
