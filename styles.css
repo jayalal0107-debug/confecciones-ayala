@@ -887,3 +887,35 @@ html {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* CATEGORÍAS EN RECUADRO INDEPENDIENTE */
+
+#categorias {
+  margin: 25px 5%;
+  padding: 25px;
+  background: #f5f8ff;
+  border-radius: 16px;
+}
+
+#categorias h2 {
+  color: #123e82;
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+/* CATÁLOGO SEPARADO */
+
+#lista-productos:not(:empty) {
+  margin: 20px 5%;
+  padding: 25px;
+  background: #f5f8ff;
+  border-radius: 16px;
+}
+
+/* PRODUCTOS DESTACADOS INDEPENDIENTES */
+
+#productos-destacados {
+  margin-top: 50px;
+  padding: 40px 5%;
+  background: #ffffff;
+}

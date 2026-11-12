@@ -26,15 +26,11 @@ const prendasArchivos = {
   "Polos": "polo",
   "Shorts Escolares": "short",
   "Medias Escolares": "medias"
-
 };
 
 // =====================================
 // 3. FOTOGRAFÍAS DISPONIBLES
 // =====================================
-
-// Registra únicamente colegios cuyas
-// fotografías estén guardadas.
 
 const colegiosConFotos = [
   "Néstor Escudero Otero",
@@ -50,9 +46,8 @@ const fotosDisponibles = {
   "Pantalones": [...colegiosConFotos],
   "Camisas": [...colegiosConFotos],
   "Polos": [...colegiosConFotos],
-"Shorts Escolares": [...colegiosConFotos],
-"Medias Escolares": []
-
+  "Shorts Escolares": [...colegiosConFotos],
+  "Medias Escolares": []
 };
 
 // =====================================
@@ -60,6 +55,7 @@ const fotosDisponibles = {
 // =====================================
 
 function obtenerImagen(categoria, colegio) {
+
   if (!fotosDisponibles[categoria]?.includes(colegio)) {
     return null;
   }
@@ -67,7 +63,9 @@ function obtenerImagen(categoria, colegio) {
   const prenda = prendasArchivos[categoria];
   const escuela = colegiosArchivos[colegio];
 
-  if (!prenda || !escuela) return null;
+  if (!prenda || !escuela) {
+    return null;
+  }
 
   return `imagenes/${prenda}-${escuela}.jpg`;
 }
@@ -78,200 +76,81 @@ function obtenerImagen(categoria, colegio) {
 
 let colegioSeleccionado = null;
 let prendaSeleccionada = null;
-let generoSeleccionado = "hombre";
+let telaSeleccionada = null;
+let generoSeleccionado = null;
 
 // =====================================
-// 6. MOSTRAR CATEGORÍAS
+// 6. FUNCIONES AUXILIARES
 // =====================================
 
-function mostrarCategorias(genero) {
+function ocultarCategorias() {
 
-  generoSeleccionado = genero;
+  const categorias =
+    document.getElementById("categorias");
 
-  // Resaltar el botón Hombre o Mujer
-  const botones =
-    document.querySelectorAll(".genero-botones button");
-
-  botones.forEach((boton, indice) => {
-
-    const activo =
-      (genero === "hombre" && indice === 0) ||
-      (genero === "mujer" && indice === 1);
-
-    boton.classList.toggle("activo", activo);
-    boton.setAttribute("aria-pressed", String(activo));
-
-  });
-
-  // Mostrar el producto del colegio seleccionado
-  if (colegioSeleccionado && prendaSeleccionada) {
-
-    mostrarProductos(
-      prendaSeleccionada,
-      genero,
-      colegioSeleccionado
-    );
-
-    document.getElementById("lista-productos")
-      ?.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      });
+  if (categorias) {
+    categorias.style.display = "none";
   }
 }
 
+function limpiarProductos() {
 
-// =====================================
-// 7. MOSTRAR PRODUCTOS
-// =====================================
-
-function mostrarProductos(categoria, genero, colegioInicial = null) {
-
-  const seccion =
+  const productos =
     document.getElementById("lista-productos");
 
-  if (!seccion) return;
-
-  seccion.innerHTML = "";
-
-  const titulo = document.createElement("h2");
-  titulo.textContent = categoria + " - " +
-    (genero === "hombre" ? "Hombre" : "Mujer");
-
-  const subtitulo = document.createElement("h3");
-  subtitulo.textContent = "Selecciona tu colegio";
-
-  const grid = document.createElement("div");
-  grid.className = "colegios-grid";
-
-  const resultado = document.createElement("div");
-  resultado.className = "resultado-colegio";
-
-  Object.keys(colegiosArchivos).forEach(colegio => {
-
-    const boton = document.createElement("button");
-    boton.type = "button";
-    boton.className = "colegio-card";
-    boton.textContent = colegio;
-
-    boton.addEventListener("click", () => {
-
-      colegioSeleccionado = colegio;
-
-      grid.querySelectorAll(".colegio-card")
-        .forEach(b => b.classList.remove("activo"));
-
-      boton.classList.add("activo");
-      resultado.innerHTML = "";
-
-      const nombre = document.createElement("h3");
-      nombre.textContent =
-        categoria + " - " + colegio;
-
-      resultado.appendChild(nombre);
-
-      const mensaje = document.createElement("p");
-      mensaje.textContent =
-        "Tallas y precios por registrar.";
-
-      const ruta = obtenerImagen(categoria, colegio);
-
-
-if (categoria === "Combo 2 en 1") {
-
-  ["Buzos", "Casacas"].forEach(tipo => {
-
-    const rutaCombo = obtenerImagen(tipo, colegio);
-
-    if (rutaCombo) {
-      const imagenCombo = document.createElement("img");
-
-      imagenCombo.src = rutaCombo;
-      imagenCombo.alt = tipo + " de " + colegio;
-      imagenCombo.className = "imagen-producto";
-
-      imagenCombo.onerror = () => imagenCombo.remove();
-
-      resultado.appendChild(imagenCombo);
-    }
-  });
-
-  mensaje.textContent =
-    "Combo: Buzo + Casaca. Precio según talla por registrar.";
+  if (productos) {
+    productos.innerHTML = "";
+  }
 }
 
+function desplazarA(elemento) {
 
+  if (!elemento) return;
 
-      if (ruta) {
-        const imagen = document.createElement("img");
-        imagen.src = ruta;
-        imagen.alt = categoria + " de " + colegio;
-        imagen.className = "imagen-producto";
-
-        imagen.onerror = () => {
-          imagen.remove();
-          mensaje.textContent =
-            "Fotografía pendiente de registrar.";
-        };
-
-        resultado.appendChild(imagen);
-
-} else if (categoria !== "Combo 2 en 1") {
-  mensaje.textContent =
-    "Fotografía, tallas y precios por registrar.";
+  elemento.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
 }
 
+// =====================================
+// 7. EXPLORAR UNIFORMES
+// =====================================
 
-      resultado.appendChild(mensaje);
-    });
+function explorarUniformes() {
 
-    grid.appendChild(boton);
+  ocultarCategorias();
 
-    if (colegio === colegioInicial) {
-      boton.dataset.inicial = "true";
-    }
-  });
+  const colegios =
+    document.getElementById("colegios");
 
-  // Mostrar botones de colegios solo cuando
-  // el cliente todavía no ha elegido uno.
+  const productos =
+    document.querySelector(".products");
 
-  if (colegioInicial) {
-    seccion.append(titulo, resultado);
-  } else {
-    seccion.append(titulo, subtitulo, grid, resultado);
+  if (colegios) {
+    colegios.style.display = "";
   }
 
-  // Seleccionar automáticamente el colegio
-  // elegido anteriormente.
-
-  const inicial = grid.querySelector(
-    '[data-inicial="true"]'
-  );
-
-  if (inicial) {
-    inicial.click();
+  if (productos) {
+    productos.style.display = "";
   }
 
-} // Fin de mostrarProductos
-
+  desplazarA(colegios);
+}
 
 // =====================================
 // 8. SELECCIONAR COLEGIO
 // =====================================
 
-
 function seleccionarColegio(colegio) {
 
   colegioSeleccionado = colegio;
   prendaSeleccionada = null;
+  telaSeleccionada = null;
+  generoSeleccionado = null;
 
-  
-const categorias = document.getElementById("categorias");
-
-if (categorias) {
-  categorias.style.display = "none";
-}
-
+  ocultarCategorias();
+  limpiarProductos();
 
   const contenedor =
     document.getElementById("prendas-del-colegio");
@@ -281,7 +160,6 @@ if (categorias) {
 
   if (!contenedor) return;
 
-  // Limpiar las selecciones anteriores
   contenedor.innerHTML = "";
 
   if (panelTelas) {
@@ -291,10 +169,15 @@ if (categorias) {
   // Marcar el colegio seleccionado
   document.querySelectorAll(".colegio-destacado")
     .forEach(boton => {
+
+      const nombre =
+        boton.querySelector("h3")?.textContent.trim();
+
       boton.classList.toggle(
         "seleccionado",
-        boton.querySelector("h3")?.textContent.trim() === colegio
+        nombre === colegio
       );
+
     });
 
   const titulo = document.createElement("h2");
@@ -327,23 +210,21 @@ if (categorias) {
 
     boton.addEventListener("click", () => {
 
-      // Desmarcar otras prendas
       grid.querySelectorAll(".prenda-colegio-card")
-        .forEach(b => b.classList.remove("seleccionado"));
+        .forEach(b => {
+          b.classList.remove("seleccionado");
+        });
 
-      // Marcar la prenda elegida
       boton.classList.add("seleccionado");
 
       colegioSeleccionado = colegio;
       prendaSeleccionada = prenda;
+      telaSeleccionada = null;
+      generoSeleccionado = null;
 
-const categorias = document.getElementById("categorias");
+      ocultarCategorias();
+      limpiarProductos();
 
-if (categorias) {
-  categorias.style.display = "none";
-}
-
-      // Mostrar el recuadro independiente de telas
       mostrarTiposTela();
 
     });
@@ -354,28 +235,26 @@ if (categorias) {
 
   contenedor.append(titulo, descripcion, grid);
 
-  contenedor.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-
+  desplazarA(contenedor);
 }
 
+// =====================================
+// 9. TIPOS DE TELA
+// =====================================
 
 function mostrarTiposTela() {
 
-  // Recuadro independiente
   const contenedor =
     document.getElementById("tipos-tela-colegio");
 
   if (!contenedor) {
-    console.error("Falta el contenedor tipos-tela-colegio");
+    console.error("Falta tipos-tela-colegio en HTML");
     return;
   }
 
   contenedor.innerHTML = "";
 
-  // Telas configuradas para cada prenda
+  // Telas configuradas por prenda
   const telasPorPrenda = {
     "Buzos": [
       "Polinam",
@@ -390,11 +269,13 @@ function mostrarTiposTela() {
     ]
   };
 
-  const tiposTela = telasPorPrenda[prendaSeleccionada];
+  const tiposTela =
+    telasPorPrenda[prendaSeleccionada];
 
   const titulo = document.createElement("h2");
   titulo.textContent =
-    "Selecciona el tipo de tela para " + prendaSeleccionada;
+    "Selecciona el tipo de tela para " +
+    prendaSeleccionada;
 
   const descripcion = document.createElement("p");
   descripcion.textContent =
@@ -402,72 +283,7 @@ function mostrarTiposTela() {
 
   contenedor.append(titulo, descripcion);
 
-  if (tiposTela) {
-
-    const grid = document.createElement("div");
-    grid.className = "prendas-colegio-grid";
-
-    tiposTela.forEach(tela => {
-
-      const boton = document.createElement("button");
-      boton.type = "button";
-      boton.className = "prenda-colegio-card";
-      boton.textContent = tela;
-
-      
-boton.addEventListener("click", () => {
-
-  // Desmarcar las demás telas
-  grid.querySelectorAll(".prenda-colegio-card")
-    .forEach(b => b.classList.remove("seleccionado"));
-
-  // Marcar la tela seleccionada
-  boton.classList.add("seleccionado");
-
-  // Mostrar Categorías (Hombre y Mujer)
-  const categorias =
-    document.getElementById("categorias");
-
-  if (categorias) {
-
-    categorias.style.display = "block";
-
-    categorias.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-
-  }
-
-});
-
-
-        // Marcar la tela seleccionada
-        grid.querySelectorAll(".prenda-colegio-card")
-          .forEach(b => b.classList.remove("seleccionado"));
-
-        boton.classList.add("seleccionado");
-
-        // Continuar hacia categorías
-        const categorias =
-          document.getElementById("categorias");
-
-        if (categorias) {
-          categorias.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-        }
-
-      });
-
-      grid.appendChild(boton);
-
-    });
-
-    contenedor.appendChild(grid);
-
-  } else {
+  if (!tiposTela) {
 
     const mensaje = document.createElement("p");
     mensaje.textContent =
@@ -476,92 +292,266 @@ boton.addEventListener("click", () => {
     mensaje.style.marginTop = "15px";
     contenedor.appendChild(mensaje);
 
+    desplazarA(contenedor);
+    return;
   }
 
-  contenedor.scrollIntoView({
-    behavior: "smooth",
-    block: "start"
+  const grid = document.createElement("div");
+  grid.className = "prendas-colegio-grid";
+
+  tiposTela.forEach(tela => {
+
+    const boton = document.createElement("button");
+    boton.type = "button";
+    boton.className = "prenda-colegio-card";
+    boton.textContent = tela;
+
+    boton.addEventListener("click", () => {
+
+      // Marcar únicamente la tela seleccionada
+      grid.querySelectorAll(".prenda-colegio-card")
+        .forEach(b => {
+          b.classList.remove("seleccionado");
+        });
+
+      boton.classList.add("seleccionado");
+
+      telaSeleccionada = tela;
+      generoSeleccionado = null;
+
+      limpiarProductos();
+
+      // Mostrar categorías al seleccionar tela
+      const categorias =
+        document.getElementById("categorias");
+
+      if (categorias) {
+
+        categorias.style.display = "block";
+
+        // Quitar selección anterior Hombre/Mujer
+        document.querySelectorAll(
+          ".genero-botones button"
+        ).forEach(b => {
+          b.classList.remove("activo");
+          b.setAttribute("aria-pressed", "false");
+        });
+
+        desplazarA(categorias);
+      }
+
+    });
+
+    grid.appendChild(boton);
+
   });
 
+  contenedor.appendChild(grid);
+
+  desplazarA(contenedor);
 }
 
+// =====================================
+// 10. SELECCIONAR HOMBRE O MUJER
+// =====================================
+
+function mostrarCategorias(genero) {
+
+  generoSeleccionado = genero;
+
+  const botones =
+    document.querySelectorAll(
+      ".genero-botones button"
+    );
+
+  botones.forEach((boton, indice) => {
+
+    const activo =
+      (genero === "hombre" && indice === 0) ||
+      (genero === "mujer" && indice === 1);
+
+    boton.classList.toggle("activo", activo);
+    boton.setAttribute(
+      "aria-pressed",
+      String(activo)
+    );
+
+  });
+
+  if (colegioSeleccionado && prendaSeleccionada &&
+      telaSeleccionada) {
+
+    mostrarProductos(
+      prendaSeleccionada,
+      genero,
+      colegioSeleccionado
+    );
+
+    desplazarA(
+      document.getElementById("lista-productos")
+    );
+  }
+}
 
 // =====================================
-// 9. INICIAR PÁGINA
+// 11. MOSTRAR PRODUCTOS
+// =====================================
+
+function mostrarProductos(
+  categoria,
+  genero,
+  colegioInicial = null
+) {
+
+  const seccion =
+    document.getElementById("lista-productos");
+
+  if (!seccion) return;
+
+  seccion.innerHTML = "";
+
+  const titulo = document.createElement("h2");
+
+  titulo.textContent =
+    categoria + " - " +
+    (genero === "hombre" ? "Hombre" : "Mujer");
+
+  const subtitulo = document.createElement("h3");
+  subtitulo.textContent = "Selecciona tu colegio";
+
+  const grid = document.createElement("div");
+  grid.className = "colegios-grid";
+
+  const resultado = document.createElement("div");
+  resultado.className = "resultado-colegio";
+
+  Object.keys(colegiosArchivos).forEach(colegio => {
+
+    const boton = document.createElement("button");
+    boton.type = "button";
+    boton.className = "colegio-card";
+    boton.textContent = colegio;
+
+    boton.addEventListener("click", () => {
+
+      colegioSeleccionado = colegio;
+
+      grid.querySelectorAll(".colegio-card")
+        .forEach(b => b.classList.remove("activo"));
+
+      boton.classList.add("activo");
+
+      resultado.innerHTML = "";
+
+      const nombre = document.createElement("h3");
+      nombre.textContent =
+        categoria + " - " + colegio;
+
+      resultado.appendChild(nombre);
+
+      const mensaje = document.createElement("p");
+      mensaje.textContent =
+        "Tallas y precios por registrar.";
+
+      const ruta = obtenerImagen(categoria, colegio);
+
+      // Fotografías para Combo 2 en 1
+      if (categoria === "Combo 2 en 1") {
+
+        ["Buzos", "Casacas"].forEach(tipo => {
+
+          const rutaCombo =
+            obtenerImagen(tipo, colegio);
+
+          if (rutaCombo) {
+
+            const imagenCombo =
+              document.createElement("img");
+
+            imagenCombo.src = rutaCombo;
+            imagenCombo.alt =
+              tipo + " de " + colegio;
+
+            imagenCombo.className =
+              "imagen-producto";
+
+            imagenCombo.onerror = () => {
+              imagenCombo.remove();
+            };
+
+            resultado.appendChild(imagenCombo);
+          }
+
+        });
+
+        mensaje.textContent =
+          "Combo: Buzo + Casaca. Precio según talla por registrar.";
+      }
+
+      // Fotografía de una prenda individual
+      if (ruta) {
+
+        const imagen = document.createElement("img");
+        imagen.src = ruta;
+        imagen.alt =
+          categoria + " de " + colegio;
+
+        imagen.className = "imagen-producto";
+
+        imagen.onerror = () => {
+          imagen.remove();
+          mensaje.textContent =
+            "Fotografía pendiente de registrar.";
+        };
+
+        resultado.appendChild(imagen);
+
+      } else if (categoria !== "Combo 2 en 1") {
+
+        mensaje.textContent =
+          "Fotografía, tallas y precios por registrar.";
+
+      }
+
+      resultado.appendChild(mensaje);
+
+    });
+
+    grid.appendChild(boton);
+
+    if (colegio === colegioInicial) {
+      boton.dataset.inicial = "true";
+    }
+
+  });
+
+  if (colegioInicial) {
+    seccion.append(titulo, resultado);
+  } else {
+    seccion.append(
+      titulo,
+      subtitulo,
+      grid,
+      resultado
+    );
+  }
+
+  const inicial = grid.querySelector(
+    '[data-inicial="true"]'
+  );
+
+  if (inicial) {
+    inicial.click();
+  }
+}
+
+// =====================================
+// 12. INICIAR PÁGINA
 // =====================================
 
 document.addEventListener("DOMContentLoaded", () => {
-  mostrarCategorias("hombre");
+
+  // Las categorías comienzan ocultas
+  ocultarCategorias();
+
 });
-
-function explorarUniformes() {
-
-  // Ocultar Categorías (Hombre y Mujer)
-  const categorias =
-    document.getElementById("categorias");
-
-  if (categorias) {
-    categorias.style.display = "none";
-  }
-
-  // Mostrar Compra según tu colegio
-  const colegios =
-    document.querySelector(".colegios-destacados");
-
-  if (colegios) {
-    colegios.style.display = "";
-  }
-
-  // Mostrar Productos destacados
-  const productos =
-    document.querySelector(".products");
-
-  if (productos) {
-    productos.style.display = "";
-  }
-
-  // Llevar al cliente a Compra según tu colegio
-  if (colegios) {
-    colegios.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }
-}
-
-/* EXPLORAR UNIFORMES */
-
-function explorarUniformes() {
-
-  // Ocultar Categorías
-  const categorias =
-    document.getElementById("categorias");
-
-  if (categorias) {
-    categorias.style.display = "none";
-  }
-
-  // Mantener visible Compra según tu colegio
-  const colegios =
-    document.getElementById("colegios");
-
-  if (colegios) {
-    colegios.style.display = "";
-  }
-
-  // Mantener visible Productos Destacados
-  const productos =
-    document.querySelector(".products");
-
-  if (productos) {
-    productos.style.display = "";
-  }
-
-  // Desplazarse hasta los colegios
-  if (colegios) {
-    colegios.scrollIntoView({
-      behavior: "smooth",
-      block: "start"
-    });
-  }
-}
