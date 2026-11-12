@@ -1249,3 +1249,54 @@ html {
     margin-bottom: 18px;
   }
 }
+
+/* =====================================
+   MENÚ HAMBURGUESA - CONFECCIONES AYALA
+===================================== */
+
+/* Oculto en computadoras */
+.menu-toggle {
+  display: none;
+}
+
+/* Diseño para celulares */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+    width: 100%;
+    padding: 14px 20px;
+    background: #1957b7;
+    color: white;
+    border: none;
+    font-size: 17px;
+    font-weight: bold;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+  }
+
+  .navbar.menu-abierto {
+    display: flex;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 15px 22px;
+    border-bottom: 1px solid
+      rgba(255, 255, 255, 0.2);
+    font-size: 15px;
+  }
+
+  .navbar a:hover {
+    background: #123e82;
+    color: white;
+  }
+}
