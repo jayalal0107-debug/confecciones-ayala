@@ -28,6 +28,127 @@ const prendasArchivos = {
   "Medias Escolares": "medias"
 };
 
+
+
+/* ==========================================
+   PRECIOS DE BUZOS POR COLEGIO, TELA Y TALLA
+========================================== */
+
+const preciosBuzos = {
+
+  // 1. NÉSTOR ESCUDERO OTERO
+  "Néstor Escudero Otero": {
+    "Polinam": {
+      "6": 25,
+      "8": 25,
+      "10": 30,
+      "12": 30,
+      "14": 30,
+      "16": 30,
+      "S": 30,
+      "M": 30,
+      "L": 35,
+      "XL": 35
+    }
+  },
+
+  // 2. FE Y ALEGRÍA
+  "Fe y Alegría": {
+
+    "Polinam": {
+      "6": 25,
+      "8": 25,
+      "10": 30,
+      "12": 30,
+      "14": 30,
+      "16": 30,
+      "S": 30,
+      "M": 30,
+      "L": 35,
+      "XL": 35
+    },
+
+    "Polialgodón": {
+      "6": 35,
+      "8": 35,
+      "10": 35,
+      "12": 38,
+      "14": 38,
+      "16": 40,
+      "S": 40,
+      "M": 40,
+      "L": 45,
+      "XL": 45
+    }
+
+  },
+
+  // 3. MICAELA BASTIDAS
+  "Micaela Bastidas": {
+    "Polinam": {
+      "6": 25,
+      "8": 25,
+      "10": 30,
+      "12": 30,
+      "14": 30,
+      "16": 30,
+      "S": 30,
+      "M": 30,
+      "L": 35,
+      "XL": 35
+    }
+  },
+
+  // 4. GRAN PASCAL
+  "Gran Pascal": {
+    "Polinam": {
+      "6": 25,
+      "8": 25,
+      "10": 30,
+      "12": 30,
+      "14": 30,
+      "16": 30,
+      "S": 30,
+      "M": 30,
+      "L": 35,
+      "XL": 35
+    }
+  },
+
+  // 5. CÉSAR VALLEJO
+  "César Vallejo": {
+    "Polinam": {
+      "6": 25,
+      "8": 25,
+      "10": 30,
+      "12": 30,
+      "14": 30,
+      "16": 30,
+      "S": 30,
+      "M": 30,
+      "L": 35,
+      "XL": 35
+    }
+  },
+
+  // 6. CRISANTO SALINAS
+  "Crisanto Salinas": {
+    "Polinam": {
+      "6": 25,
+      "8": 25,
+      "10": 30,
+      "12": 30,
+      "14": 30,
+      "16": 30,
+      "S": 30,
+      "M": 30,
+      "L": 35,
+      "XL": 35
+    }
+  }
+};
+
+
 // =====================================
 // 3. FOTOGRAFÍAS DISPONIBLES
 // =====================================
@@ -255,19 +376,27 @@ function mostrarTiposTela() {
   contenedor.innerHTML = "";
 
   // Telas configuradas por prenda
-  const telasPorPrenda = {
-    "Buzos": [
-      "Polinam",
-      "Polialgodón"
-    ],
-    "Pantalones": [
-      "Gabardina",
-      "Drill",
-      "Tergal",
-      "Poliviscosa",
-      "Lanilla"
-    ]
-  };
+  
+
+
+const telasPorPrenda = {
+
+  // BUZOS: telas según el colegio
+  "Buzos":
+    colegioSeleccionado === "Fe y Alegría"
+      ? ["Polinam", "Polialgodón"]
+      : ["Polinam"],
+
+  // PANTALONES: conservar sus telas originales
+  "Pantalones": [
+    "Gabardina",
+    "Drill",
+    "Tergal",
+    "Poliviscosa",
+    "Lanilla"
+  ]
+
+};
 
   const tiposTela =
     telasPorPrenda[prendaSeleccionada];
@@ -515,6 +644,70 @@ function mostrarProductos(
 
       resultado.appendChild(mensaje);
 
+/* TALLAS Y PRECIOS DE BUZOS */
+
+if (categoria === "Buzos") {
+
+
+const preciosTela =
+  preciosBuzos[colegio]?.[telaSeleccionada];
+
+
+  if (preciosTela) {
+
+    mensaje.textContent =
+      "Selecciona tu talla para conocer el precio.";
+
+    const panelTallas = document.createElement("div");
+    panelTallas.className = "panel-tallas";
+
+    const tituloTallas = document.createElement("h3");
+    tituloTallas.textContent = "Selecciona tu talla";
+
+    const opcionesTallas = document.createElement("div");
+    opcionesTallas.className = "opciones-tallas";
+
+    const precioMostrado = document.createElement("p");
+    precioMostrado.className = "precio-uniforme";
+    precioMostrado.textContent =
+  "El precio aparecerá al seleccionar una talla.";
+
+    Object.entries(preciosTela).forEach(([talla, precio]) => {
+
+      const botonTalla = document.createElement("button");
+      botonTalla.type = "button";
+      botonTalla.textContent = talla;
+      botonTalla.className = "boton-talla";
+
+      botonTalla.addEventListener("click", () => {
+
+        opcionesTallas.querySelectorAll(".boton-talla")
+          .forEach(b => b.classList.remove("activo"));
+
+        botonTalla.classList.add("activo");
+
+precioMostrado.innerHTML =
+  `<span class="talla-elegida">Talla seleccionada: ${talla}</span>
+   <strong>S/ ${precio.toFixed(2)}</strong>`;
+
+      });
+
+      opcionesTallas.appendChild(botonTalla);
+
+    });
+
+    panelTallas.append(
+      tituloTallas,
+      opcionesTallas,
+      precioMostrado
+    );
+
+    resultado.appendChild(panelTallas);
+
+  }
+
+}
+
     });
 
     grid.appendChild(boton);
@@ -703,3 +896,48 @@ if (botonMenu && menuPrincipal) {
   });
 
 })();
+
+/* =====================================
+   INDICADOR AUTOMÁTICO DE COMPRA
+   CONFECCIONES AYALA
+===================================== */
+
+function actualizarPasosCompra() {
+
+  const pasos = document.querySelectorAll(
+    "#pasos-compra .paso-compra"
+  );
+
+  let pasoActual = 1;
+
+  if (colegioSeleccionado) {
+    pasoActual = 2;
+  }
+
+  if (colegioSeleccionado && prendaSeleccionada) {
+    pasoActual = 3;
+  }
+
+  if (
+    colegioSeleccionado &&
+    prendaSeleccionada &&
+    telaSeleccionada
+  ) {
+    pasoActual = 4;
+  }
+
+  pasos.forEach((paso, indice) => {
+
+    paso.classList.toggle(
+      "activo",
+      indice === pasoActual - 1
+    );
+
+    paso.classList.toggle(
+      "completado",
+      indice < pasoActual - 1
+    );
+
+  });
+
+}

@@ -1543,3 +1543,277 @@ html {
   border-color: #1957b7;
   color: white;
 }
+
+/* =====================================
+   TALLAS Y PRECIOS DE BUZOS
+===================================== */
+
+.panel-tallas {
+  margin-top: 25px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 15px;
+  max-width: 500px;
+}
+
+.panel-tallas h3 {
+  color: #123e82;
+  font-size: 21px;
+  margin-bottom: 18px;
+}
+
+.opciones-tallas {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+}
+
+.boton-talla {
+  padding: 12px 8px;
+  background: #edf3fc;
+  color: #1957b7;
+  border: 2px solid #dce6f5;
+  border-radius: 9px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.boton-talla:hover,
+.boton-talla.activo {
+  background: #1957b7;
+  color: white;
+  border-color: #1957b7;
+}
+
+.precio-uniforme {
+  margin-top: 22px;
+  color: #123e82;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+@media (max-width: 768px) {
+  .panel-tallas {
+    padding: 15px;
+  }
+
+  .opciones-tallas {
+    gap: 6px;
+  }
+
+  .boton-talla {
+    padding: 10px 4px;
+    font-size: 14px;
+  }
+
+  .precio-uniforme {
+    font-size: 21px;
+  }
+}
+
+/* ==========================================
+   BUZOS - FOTO Y TALLAS LADO A LADO
+========================================== */
+
+@media (min-width: 769px) {
+
+  #lista-productos .resultado-colegio:has(.panel-tallas) {
+    display: grid;
+    grid-template-columns: 370px minmax(0, 1fr);
+    column-gap: 35px;
+    row-gap: 15px;
+    align-items: start;
+  }
+
+  /* Título del producto */
+  #lista-productos .resultado-colegio:has(.panel-tallas) > h3 {
+    grid-column: 1 / -1;
+  }
+
+  /* Fotografía a la izquierda */
+  #lista-productos .resultado-colegio:has(.panel-tallas) > .imagen-producto {
+    grid-column: 1;
+    grid-row: 2 / span 2;
+    width: 100%;
+    max-width: 370px;
+    height: auto;
+    margin: 0;
+    object-fit: contain;
+  }
+
+  /* Mensaje a la derecha */
+  #lista-productos .resultado-colegio:has(.panel-tallas) > p {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+  }
+
+  /* Tallas y precios a la derecha */
+  #lista-productos .resultado-colegio:has(.panel-tallas) > .panel-tallas {
+    grid-column: 2;
+    grid-row: 3;
+    width: 100%;
+    max-width: 530px;
+    margin: 0;
+  }
+
+}
+
+/* Adaptación a celulares */
+
+@media (max-width: 768px) {
+
+  #lista-productos .resultado-colegio:has(.panel-tallas) {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  #lista-productos .resultado-colegio:has(.panel-tallas) > .imagen-producto {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  #lista-productos .resultado-colegio:has(.panel-tallas) > .panel-tallas {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+  }
+
+}
+
+/* =====================================
+   ALINEAR FOTO Y PANEL DE TALLAS
+===================================== */
+
+@media (min-width: 769px) {
+
+  #lista-productos .resultado-colegio:has(.panel-tallas) {
+    grid-template-rows: auto auto auto;
+    row-gap: 8px;
+    align-items: start;
+  }
+
+  /* Mensaje al lado de la imagen */
+  #lista-productos .resultado-colegio:has(.panel-tallas) > p {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0 0 5px;
+  }
+
+  /* Subir el recuadro blanco */
+  #lista-productos .resultado-colegio:has(.panel-tallas) > .panel-tallas {
+    grid-column: 2;
+    grid-row: 3;
+    align-self: start;
+    margin: 0;
+  }
+
+}
+
+/* =========================================
+   PRODUCTO - DISTRIBUCIÓN PROFESIONAL
+========================================= */
+
+@media (min-width: 769px) {
+
+  #lista-productos .resultado-colegio:has(.panel-tallas) {
+    display: grid;
+    grid-template-columns: 400px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    gap: 22px 35px;
+    align-items: start;
+  }
+
+  /* Nombre del producto */
+  #lista-productos .resultado-colegio:has(.panel-tallas) > h3 {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    margin: 0;
+  }
+
+  /* Fotografía a la izquierda */
+  #lista-productos .resultado-colegio:has(.panel-tallas) > .imagen-producto {
+    grid-column: 1;
+    grid-row: 2;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0;
+  }
+
+  /* Ocultar el mensaje repetido */
+  #lista-productos .resultado-colegio:has(.panel-tallas) > p:not(.panel-tallas p) {
+    display: none;
+  }
+
+  /* Panel de tallas alineado con la imagen */
+  #lista-productos .resultado-colegio:has(.panel-tallas) > .panel-tallas {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: start;
+    width: 100%;
+    max-width: 580px;
+    margin: 0;
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(18, 62, 130, 0.08);
+  }
+
+}
+
+/* Diseño en celulares */
+
+@media (max-width: 768px) {
+
+  #lista-productos .resultado-colegio:has(.panel-tallas) {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  #lista-productos .resultado-colegio:has(.panel-tallas) > p {
+    display: none;
+  }
+
+  #lista-productos .resultado-colegio:has(.panel-tallas) > .imagen-producto {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  #lista-productos .resultado-colegio:has(.panel-tallas) > .panel-tallas {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 18px;
+  }
+
+}
+
+/* PRECIO DEL UNIFORME */
+
+.precio-uniforme {
+  margin-top: 20px;
+  color: #667085;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.precio-uniforme .talla-elegida {
+  display: block;
+  font-size: 15px;
+  color: #667085;
+  margin-bottom: 4px;
+}
+
+.precio-uniforme strong {
+  display: block;
+  font-size: 34px;
+  color: #1957b7;
+  font-weight: 800;
+}
