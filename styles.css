@@ -1817,3 +1817,116 @@ html {
   color: #1957b7;
   font-weight: 800;
 }
+
+/* ==========================================
+   COMBO 2 EN 1 - DISEÑO CORREGIDO
+   FOTO BUZO | FOTO CASACA | TALLAS
+========================================== */
+
+@media (min-width: 769px) {
+
+  #lista-productos .resultado-colegio.resultado-combo {
+    display: grid !important;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr)
+      minmax(0, 1.35fr) !important;
+    gap: 20px !important;
+    align-items: start !important;
+  }
+
+  /* Título arriba */
+  #lista-productos .resultado-colegio.resultado-combo > h3 {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+  }
+
+  /* Ambas fotografías */
+  #lista-productos .resultado-colegio.resultado-combo > img.imagen-producto {
+    width: 100% !important;
+    max-width: none !important;
+    height: 350px !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+    padding: 10px !important;
+    align-self: start !important;
+  }
+
+  /* Primera imagen: Buzo */
+  #lista-productos .resultado-colegio.resultado-combo > img:nth-of-type(1) {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+
+  /* Segunda imagen: Casaca */
+  #lista-productos .resultado-colegio.resultado-combo > img:nth-of-type(2) {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+  }
+
+  /* Tabla de tallas */
+  #lista-productos .resultado-colegio.resultado-combo > .panel-tallas {
+    grid-column: 3 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin: 0 !important;
+    align-self: start !important;
+  }
+
+  /* Ocultar mensaje repetido */
+  #lista-productos .resultado-colegio.resultado-combo > p {
+    display: none !important;
+  }
+}
+
+/* ==========================================
+   COMBO 2 EN 1 - CELULARES
+========================================== */
+
+@media (max-width: 768px) {
+
+  #lista-productos .resultado-colegio.resultado-combo {
+    display: grid !important;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+
+  #lista-productos .resultado-colegio.resultado-combo > h3 {
+    grid-column: 1 / -1 !important;
+    grid-row: 1 !important;
+  }
+
+  #lista-productos .resultado-colegio.resultado-combo > img.imagen-producto {
+    width: 100% !important;
+    max-width: none !important;
+    height: 210px !important;
+    margin: 0 !important;
+    padding: 6px !important;
+    object-fit: contain !important;
+  }
+
+  #lista-productos .resultado-colegio.resultado-combo > img:nth-of-type(1) {
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+  }
+
+  #lista-productos .resultado-colegio.resultado-combo > img:nth-of-type(2) {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
+  }
+
+  #lista-productos .resultado-colegio.resultado-combo > .panel-tallas {
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+  }
+
+  #lista-productos .resultado-colegio.resultado-combo > p {
+    display: none !important;
+  }
+}

@@ -1,5 +1,4 @@
-
-console.log("Confecciones Ayala cargada correctamente");
+console.log("Confecciones Ayala - script completo actualizado (casacas y buzos)");
 
 // =====================================
 // 1. COLEGIOS
@@ -148,6 +147,224 @@ const preciosBuzos = {
   }
 };
 
+
+/* ==========================================
+   PRECIOS DE CASACAS POR COLEGIO, TELA Y TALLA
+   0.00 = precio provisional pendiente de registrar
+   No utilizar los precios de Buzos en Casacas.
+========================================== */
+
+const preciosCasacas = {
+  "Néstor Escudero Otero": {
+    "Polinam": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    }
+  },
+
+  "Fe y Alegría": {
+    "Polinam": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    },
+    "Polialgodón": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    }
+  },
+
+  "Micaela Bastidas": {
+    "Polinam": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    }
+  },
+
+  "Gran Pascal": {
+    "Polinam": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    }
+  },
+
+  "César Vallejo": {
+    "Polinam": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    }
+  },
+
+  "Crisanto Salinas": {
+    "Polinam": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    }
+  }
+};
+
+/* ==========================================
+   PRECIOS DE COMBO 2 EN 1 POR COLEGIO, TELA Y TALLA
+========================================== */
+
+const preciosCombo2En1 = {
+  "Néstor Escudero Otero": {
+    "Polinam": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    }
+  },
+
+  "Fe y Alegría": {
+    "Polinam": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    },
+    "Polialgodón": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    }
+  },
+
+  "Micaela Bastidas": {
+    "Polinam": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    }
+  },
+
+  "Gran Pascal": {
+    "Polinam": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    }
+  },
+
+  "César Vallejo": {
+    "Polinam": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    }
+  },
+
+  "Crisanto Salinas": {
+    "Polinam": {
+      "6": 0.00,
+      "8": 0.00,
+      "10": 0.00,
+      "12": 0.00,
+      "14": 0.00,
+      "16": 0.00,
+      "S": 0.00,
+      "M": 0.00,
+      "L": 0.00,
+      "XL": 0.00
+    }
+  }
+};
 
 // =====================================
 // 3. FOTOGRAFÍAS DISPONIBLES
@@ -375,31 +592,26 @@ function mostrarTiposTela() {
 
   contenedor.innerHTML = "";
 
-  // Telas configuradas por prenda
-  
-
-
-const telasPorPrenda = {
-
-  // BUZOS: telas según el colegio
-  "Buzos":
-    colegioSeleccionado === "Fe y Alegría"
+  // Buzos y casacas: Fe y Alegría ofrece dos telas.
+  // Los otros cinco colegios ofrecen solamente Polinam.
+  // Los pantalones mantienen sus propias telas.
+  const esFeYAlegria = colegioSeleccionado === "Fe y Alegría";
+  const telasPorPrenda = {
+    "Buzos": esFeYAlegria
       ? ["Polinam", "Polialgodón"]
       : ["Polinam"],
+    "Casacas": esFeYAlegria
+      ? ["Polinam", "Polialgodón"]
+      : ["Polinam"],
+    "Combo 2 en 1": esFeYAlegria
+      ? ["Polinam", "Polialgodón"]
+      : ["Polinam"],
+    "Pantalones": [
+      "Gabardina", "Drill", "Tergal", "Poliviscosa", "Lanilla"
+    ]
+  };
 
-  // PANTALONES: conservar sus telas originales
-  "Pantalones": [
-    "Gabardina",
-    "Drill",
-    "Tergal",
-    "Poliviscosa",
-    "Lanilla"
-  ]
-
-};
-
-  const tiposTela =
-    telasPorPrenda[prendaSeleccionada];
+  const tiposTela = telasPorPrenda[prendaSeleccionada];
 
   const titulo = document.createElement("h2");
   titulo.textContent =
@@ -572,6 +784,12 @@ function mostrarProductos(
 
       resultado.innerHTML = "";
 
+        // Diseño especial únicamente para Combo 2 en 1
+  resultado.classList.toggle(
+    "resultado-combo",
+    categoria === "Combo 2 en 1"
+  );
+
       const nombre = document.createElement("h3");
       nombre.textContent =
         categoria + " - " + colegio;
@@ -644,69 +862,74 @@ function mostrarProductos(
 
       resultado.appendChild(mensaje);
 
-/* TALLAS Y PRECIOS DE BUZOS */
+      /* ==========================================
+         TALLAS Y PRECIOS: BUZOS Y CASACAS
+         Datos independientes por colegio y tela
+      ========================================== */
 
-if (categoria === "Buzos") {
+      if (["Buzos", "Casacas", "Combo 2 en 1"].includes(categoria)) {
 
+        const tablaPrecios = categoria === "Buzos"
+          ? preciosBuzos
+          : categoria === "Casacas"
+            ? preciosCasacas
+            : preciosCombo2En1;
 
-const preciosTela =
-  preciosBuzos[colegio]?.[telaSeleccionada];
+        const preciosTela = tablaPrecios[colegio]?.[telaSeleccionada];
 
+        if (preciosTela && Object.keys(preciosTela).length > 0) {
 
-  if (preciosTela) {
+          // El título del panel ya indica que se debe elegir una talla.
+          mensaje.textContent = (categoria === "Combo 2 en 1"
+            ? "Combo: Buzo + Casaca. "
+            : "") + "Tela seleccionada: " + telaSeleccionada;
 
-    mensaje.textContent =
-      "Selecciona tu talla para conocer el precio.";
+          const panelTallas = document.createElement("div");
+          panelTallas.className = "panel-tallas";
 
-    const panelTallas = document.createElement("div");
-    panelTallas.className = "panel-tallas";
+          const tituloTallas = document.createElement("h3");
+          tituloTallas.textContent = "Selecciona tu talla";
 
-    const tituloTallas = document.createElement("h3");
-    tituloTallas.textContent = "Selecciona tu talla";
+          const opcionesTallas = document.createElement("div");
+          opcionesTallas.className = "opciones-tallas";
 
-    const opcionesTallas = document.createElement("div");
-    opcionesTallas.className = "opciones-tallas";
+          const precioMostrado = document.createElement("p");
+          precioMostrado.className = "precio-uniforme";
+          precioMostrado.textContent =
+            "El precio aparecerá al seleccionar una talla.";
 
-    const precioMostrado = document.createElement("p");
-    precioMostrado.className = "precio-uniforme";
-    precioMostrado.textContent =
-  "El precio aparecerá al seleccionar una talla.";
+          Object.entries(preciosTela).forEach(([talla, precio]) => {
+            const botonTalla = document.createElement("button");
+            botonTalla.type = "button";
+            botonTalla.textContent = talla;
+            botonTalla.className = "boton-talla";
 
-    Object.entries(preciosTela).forEach(([talla, precio]) => {
+            botonTalla.addEventListener("click", () => {
+              opcionesTallas.querySelectorAll(".boton-talla")
+                .forEach(b => b.classList.remove("activo"));
+              botonTalla.classList.add("activo");
 
-      const botonTalla = document.createElement("button");
-      botonTalla.type = "button";
-      botonTalla.textContent = talla;
-      botonTalla.className = "boton-talla";
+              // Los precios provisionales de casacas se muestran como S/ 0.00.
+              // Si falta un valor, no se convierte silenciosamente en cero.
+              const precioTexto = typeof precio === "number" && Number.isFinite(precio)
+                ? "S/ " + precio.toFixed(2)
+                : "Precio no registrado";
 
-      botonTalla.addEventListener("click", () => {
+              precioMostrado.innerHTML =
+                `<span class="talla-elegida">Talla seleccionada: ${talla}</span>` +
+                `<strong>${precioTexto}</strong>`;
+            });
 
-        opcionesTallas.querySelectorAll(".boton-talla")
-          .forEach(b => b.classList.remove("activo"));
+            opcionesTallas.appendChild(botonTalla);
+          });
 
-        botonTalla.classList.add("activo");
+          panelTallas.append(tituloTallas, opcionesTallas, precioMostrado);
+          resultado.appendChild(panelTallas);
 
-precioMostrado.innerHTML =
-  `<span class="talla-elegida">Talla seleccionada: ${talla}</span>
-   <strong>S/ ${precio.toFixed(2)}</strong>`;
-
-      });
-
-      opcionesTallas.appendChild(botonTalla);
-
-    });
-
-    panelTallas.append(
-      tituloTallas,
-      opcionesTallas,
-      precioMostrado
-    );
-
-    resultado.appendChild(panelTallas);
-
-  }
-
-}
+        } else {
+          mensaje.textContent = "Tallas y precios pendientes de registrar.";
+        }
+      }
 
     });
 
