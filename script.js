@@ -607,7 +607,7 @@ function mostrarTiposTela() {
       ? ["Polinam", "Polialgodón"]
       : ["Polinam"],
     "Pantalones": [
-      "Gabardina", "Drill", "Tergal", "Poliviscosa", "Lanilla"
+      "Casimir", "Poliester"
     ]
   };
 
